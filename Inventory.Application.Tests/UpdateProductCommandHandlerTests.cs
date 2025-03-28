@@ -40,7 +40,9 @@ namespace Inventory.Application.Tests
                 .ReturnsAsync(existingProduct);
 
             _productRepositoryMock.Setup(repo => repo.UpdateAsync(existingProduct))
-                .ReturnsAsync(true);
+            .Returns(Task.CompletedTask);
+            //_productRepositoryMock.Setup(repo => repo.UpdateAsync(existingProduct))
+            //    .ReturnsAsync(true);
 
             // Act
             var result = await _handler.Handle(updateProductCommand, CancellationToken.None);

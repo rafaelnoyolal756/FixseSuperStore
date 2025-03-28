@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Inventory.Infrastructure.Repositories
 {
-    public class ProductRepository
+    public class ProductRepository : IProductRepository
     {
         private readonly ProductDbContext _context;
 

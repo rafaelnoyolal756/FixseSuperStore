@@ -33,9 +33,20 @@ namespace Inventory.Application.Tests
                 Stock = 50
             };
 
-            _productRepositoryMock
-                .Setup(repo => repo.AddAsync(It.IsAny<Product>()))
-                .ReturnsAsync((Product product) => product);
+            var product = new Product
+            {
+                Id = Guid.NewGuid(),
+                Name = createProductCommand.Name,
+                Price = createProductCommand.Price,
+                Stock = createProductCommand.Stock
+            };
+
+            _productRepositoryMock.Setup(repo => repo.AddAsync(It.IsAny<Product>()))
+                .Returns(Task.CompletedTask);
+
+            //_productRepositoryMock
+            //    .Setup(repo => repo.AddAsync(It.IsAny<Product>()))
+            //    .ReturnsAsync((Product product) => product);
 
             // Act
             var result = await _handler.Handle(createProductCommand, CancellationToken.None);

@@ -34,7 +34,9 @@ namespace Inventory.Application.Tests
                 .ReturnsAsync(existingProduct);
 
             _productRepositoryMock.Setup(repo => repo.DeleteAsync(existingProduct))
-                .ReturnsAsync(true);
+            .Returns(Task.CompletedTask);
+            //_productRepositoryMock.Setup(repo => repo.DeleteAsync(existingProduct))
+            //    .ReturnsAsync(true);
 
             // Act
             var result = await _handler.Handle(deleteProductCommand, CancellationToken.None);
