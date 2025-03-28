@@ -9,10 +9,10 @@ namespace Inventory.Domain.Repositories
 {
     public interface IProductRepository
     {
-        Task<Product?> GetByIdAsync(Guid id);
+        Task<Product> GetByIdAsync(Guid id);
         Task<IEnumerable<Product>> GetAllAsync();
-        Task<Product> AddAsync(Product product);
-        Task<bool> UpdateAsync(Product product);
-        Task<bool> DeleteAsync(Product product);
+        Task AddAsync(Product product);
+        Task UpdateAsync(Product product);
+        Task DeleteAsync(Product product);
     }
 }

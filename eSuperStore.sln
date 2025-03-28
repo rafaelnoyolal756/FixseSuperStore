@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.Application", "In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.API", "Inventory.API\Inventory.API\Inventory.API.csproj", "{E403EEB0-DC19-4727-B249-839C0CF907EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.Application.Tests", "Inventory.Application.Tests\Inventory.Application.Tests.csproj", "{D22B4D0E-CC85-44A4-8505-DFD2FB56FAC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{E403EEB0-DC19-4727-B249-839C0CF907EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E403EEB0-DC19-4727-B249-839C0CF907EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E403EEB0-DC19-4727-B249-839C0CF907EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D22B4D0E-CC85-44A4-8505-DFD2FB56FAC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D22B4D0E-CC85-44A4-8505-DFD2FB56FAC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D22B4D0E-CC85-44A4-8505-DFD2FB56FAC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D22B4D0E-CC85-44A4-8505-DFD2FB56FAC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
