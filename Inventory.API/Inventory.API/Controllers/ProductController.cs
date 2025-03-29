@@ -1,5 +1,6 @@
 ﻿using Inventory.Application.Features.Commands;
 using Inventory.Application.Features.Queries;
+using Microsoft.Extensions.Logging;
 using Inventory.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -12,16 +13,20 @@ namespace Inventory.API.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IMediator _mediator;
+        private readonly ILogger<ProductController> _logger;
 
-        public ProductController(IMediator mediator)
+        public ProductController(IMediator mediator, ILogger<ProductController> logger)
         {
             _mediator = mediator;
+            _logger = logger;
         }
 
-        [HttpPost]
+        [HttpPost("CreateProduct")]
         public async Task<IActionResult> CreateProduct([FromBody] CreateProductCommand command)
         {
+            _logger.LogInformation("Received CreateProduct request for product: {Name}", command.Name);
             var product = await _mediator.Send(command);
+            _logger.LogInformation("Product created with ID: {Id}", product.Id);
             return CreatedAtAction(nameof(GetProductById), new { id = product.Id }, product);
         }
 

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using MediatR;
 using Inventory.Application.Features.Queries;
 
@@ -17,29 +18,7 @@ namespace Inventory.Application.Features.Commands
         public int Stock { get; set; }
     }
 
-    public class CreateProductHandler : IRequestHandler<CreateProductCommand, Product>
-    {
-        private readonly IProductRepository _productRepository;
-
-        public CreateProductHandler(IProductRepository productRepository)
-        {
-            _productRepository = productRepository;
-        }
-
-        public async Task<Product> Handle(CreateProductCommand request, CancellationToken cancellationToken)
-        {
-            var product = new Product
-            {
-                Id = Guid.NewGuid(),
-                Name = request.Name,
-                Price = request.Price,
-                Stock = request.Stock
-            };
-
-            await _productRepository.AddAsync(product);
-            return product;
-        }
-    }
+    
 
     public class GetProductByIdQueryHandler : IRequestHandler<GetProductByIdQuery, Product>
     {
