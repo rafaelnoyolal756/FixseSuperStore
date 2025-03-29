@@ -30,6 +30,11 @@ namespace Inventory.API.Controllers
             return CreatedAtAction(nameof(GetProductById), new { id = product.Id }, product);
         }
 
+        /// <summary>
+        /// Gets a product by ID.
+        /// </summary>
+        /// <param name="id">The product ID must be guid type.</param>
+        /// <returns>The product.</returns>
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProductById(Guid id)
         {
